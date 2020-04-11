@@ -11,21 +11,25 @@ public class Main {
             singlyList.add(i);
         }
 
-        var result = splitUpDigits(singlyList.getHead(), new LinkedList<>(), new LinkedList<>());
+        var result = splitUpDigits(singlyList.getHead());
 
-        System.out.print(result.get(0));
-        System.out.print(result.get(1));
+        System.out.println(result);
     }
 
 
-    private static List<LinkedList<Integer>> splitUpDigits(Node<Integer> head, LinkedList<Integer> even, LinkedList<Integer> odd) {
-        if (head != null) {
+    private static List<LinkedList<Integer>> splitUpDigits(Node<Integer> head) {
+        var even = new LinkedList<Integer>();
+        var odd = new LinkedList<Integer>();
+
+        while (head.getNextRef() != null) {
+
             if (head.getValue() % 2 == 0) {
                 even.add(head.getValue());
             } else {
                 odd.add(head.getValue());
             }
-            splitUpDigits(head.getNextRef(), even, odd);
+
+            head = head.getNextRef();
         }
 
         var result = new ArrayList<LinkedList<Integer>>(2);
