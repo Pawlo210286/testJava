@@ -13,7 +13,8 @@ public class Main {
 
         var result = splitUpDigits(singlyList.getHead());
 
-        System.out.println(result);
+        System.out.println(result.get(0));
+        System.out.println(result.get(1));
     }
 
 
@@ -24,9 +25,9 @@ public class Main {
         while (head.getNextRef() != null) {
 
             if (head.getValue() % 2 == 0) {
-                even.add(head.getValue());
+                even.addFirst(head.getValue());
             } else {
-                odd.add(head.getValue());
+                odd.addFirst(head.getValue());
             }
 
             head = head.getNextRef();
