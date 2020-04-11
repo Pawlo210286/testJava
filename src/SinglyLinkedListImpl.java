@@ -19,33 +19,6 @@ public class SinglyLinkedListImpl<T> {
         tail = nd;
     }
 
-    public void addAfter(T element, T after) {
-        Node<T> tmp = head;
-        Node<T> refNode = null;
-
-        while (true) {
-            if (tmp == null) {
-                break;
-            }
-            if (tmp.compareTo(after) == 0) {
-                refNode = tmp;
-                break;
-            }
-            tmp = tmp.getNextRef();
-        }
-        if (refNode != null) {
-            Node<T> nd = new Node<T>();
-            nd.setValue(element);
-            nd.setNextRef(tmp.getNextRef());
-            if (tmp == tail) {
-                tail = nd;
-            }
-            tmp.setNextRef(nd);
-        } else {
-            System.out.println("Unable to find the given element...");
-        }
-    }
-
     public void deleteFront() {
 
         if (head == null) {
@@ -59,30 +32,4 @@ public class SinglyLinkedListImpl<T> {
         System.out.println("Deleted: " + tmp.getValue());
     }
 
-    public void deleteAfter(T after) {
-
-        Node<T> tmp = head;
-        Node<T> refNode = null;
-
-        while (true) {
-            if (tmp == null) {
-                break;
-            }
-            if (tmp.compareTo(after) == 0) {
-                refNode = tmp;
-                break;
-            }
-            tmp = tmp.getNextRef();
-        }
-        if (refNode != null) {
-            tmp = refNode.getNextRef();
-            refNode.setNextRef(tmp.getNextRef());
-            if (refNode.getNextRef() == null) {
-                tail = refNode;
-            }
-            System.out.println("Deleted: " + tmp.getValue());
-        } else {
-            System.out.println("Unable to find the given element...");
-        }
-    }
 }
