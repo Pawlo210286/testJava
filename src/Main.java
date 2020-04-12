@@ -5,7 +5,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        var singlyList = new SinglyLinkedListImpl<Integer>();
+        var singlyList = new OneWayList<Integer>();
 
         for (int i = 0; i < 100; i++) {
             singlyList.add(i);
@@ -18,7 +18,7 @@ public class Main {
     }
 
 
-    private static List<LinkedList<Integer>> splitUpDigits(Node<Integer> head) {
+    private static List<LinkedList<Integer>> splitUpDigits(OneWayList.Node<Integer> head) {
         var even = new LinkedList<Integer>();
         var odd = new LinkedList<Integer>();
 
